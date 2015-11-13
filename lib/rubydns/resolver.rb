@@ -168,6 +168,8 @@ module RubyDNS
 					@logger.warn "[#{message.id}] Error while decoding data from network: #{$!}!" if @logger
 				rescue IOError
 					@logger.warn "[#{message.id}] Error while reading from network: #{$!}!" if @logger
+				rescue Exception
+					@logger.error "[#{message.id}] Error while reading from network: #{$!}!" if @logger
 				end
 			end
 			
